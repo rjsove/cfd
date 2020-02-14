@@ -1,1 +1,1 @@
-g++ src/main.cpp -o bin/iLES
+g++ src/main.cpp src/utils.cpp -o bin/iLES

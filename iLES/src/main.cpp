@@ -2,19 +2,13 @@
 #include <string>
 #include <chrono>
 #include <cmath>
+#include "utils.h"
 using namespace std;
 
-int main(int argc,char** argv)
+int main()
 {
   // Start Simulation Timer
   auto start = chrono::high_resolution_clock::now();
-  
-  // Get Project Directory
-  string dir;    
-  if (argc == 2)
-    dir = string(argv[1]);
-  else
-    dir = "";
   
   // Read User Inputs
   // Geometry Parameters
@@ -68,10 +62,11 @@ int main(int argc,char** argv)
   
   // Stop Simulation Timer
   auto stop = chrono::high_resolution_clock::now(); 
-  auto runtime = chrono::duration_cast<chrono::seconds>(stop-start);
+  auto runtime = chrono::duration_cast<chrono::milliseconds>(stop-start);
   
   // Display Simulation Results
-  cout << "\nSimulation complete\n\nruntime: " << runtime.count() << " seconds";
+  cout << "\nSimulation complete\n\n";
+  output_runtime(runtime.count());    
   cout << endl << endl; 
   
   return 0;
