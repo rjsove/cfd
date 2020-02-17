@@ -1,4 +1,4 @@
 .DS_Store
 iLES/bin
-physical
-numerical
+iLES/physical
+iLES/numerical
