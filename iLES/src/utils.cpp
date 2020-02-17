@@ -1,5 +1,38 @@
 #include "utils.h"
 
+user_input::user_input()
+{
+  string temp;
+  
+  // Physical Parameters
+  ifstream phy_file;
+  phy_file.open("physical");
+  while (!phy_file.eof())
+  {
+    phy_file >> temp;
+    if (temp.compare("Re") == 0)
+      phy_file >> Re;
+  }
+  phy_file.close();
+  
+  // Numerical Parameters
+  ifstream num_file;
+  num_file.open("numerical");
+  while (!num_file.eof())
+  {
+    num_file >> temp;
+    if (temp.compare("time_step") == 0)
+      num_file >> time_step;
+    if (temp.compare("stop_time") == 0)
+      num_file >> stop_time;
+    if (temp.compare("print_interval") == 0)
+      num_file >> print_interval;
+    if (temp.compare("grid_size") == 0)
+      num_file >> grid_size;
+  }
+  num_file.close(); 
+}
+
 void output_runtime(long runtime)
 {
   long remainder = runtime;

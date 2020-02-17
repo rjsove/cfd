@@ -11,17 +11,22 @@ int main()
   auto start = chrono::high_resolution_clock::now();
   
   // Read User Inputs
+  user_input usr_in;
+  
   // Geometry Parameters
   double H = 0.5;
   
   // Flow Parameters
-  double Re = 1e6;
+  double Re = usr_in.Re;
   
   // Simulation Parameters
-  double stop_time = 1;
-  double print_interval = 0.1;
-  double dt = 0.1;
-  int Nx = 50;
+  double stop_time = usr_in.stop_time;
+  double print_interval = usr_in.print_interval;
+  double dt = usr_in.time_step;
+  int N = usr_in.grid_size;
+  
+  // Calculate Grid Spacing
+  int Nx = N;
   int Ny = round(Nx*H);
   double dx = 1.0/Nx;
   double dy = H/Ny;
