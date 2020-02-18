@@ -8,6 +8,7 @@ class pentadiagonal
 {
 public:
   pentadiagonal();
+  pentadiagonal(int n);
   ~pentadiagonal();
   void setP(int l);
   void setN(int l);
